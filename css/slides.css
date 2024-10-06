@@ -1,0 +1,28 @@
+/*Anpassung von presentation slides*/
+
+.reveal{
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  /* Enable pointer events so users can click and drag on scrollbars */
+  pointer-events: auto !important;
+}
+.reveal mark {
+  background-color: #3296AA;
+  border-radius: .15rem;
+  padding: .15rem;
+}
+
+.reveal .mermaid {   
+  min-width: 80%;   
+  max-height: auto;
+}
+
+.reveal .mermaid svg {   
+  max-width: 100% !important;
+}
+
+.reveal .mermaid svg .edgeLabel {   
+  background-color: var(--r-background-color) !important;   
+  color: var(--r-main-color) !important;   
+  font-size: 13px;
+}
