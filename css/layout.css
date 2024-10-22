@@ -3,7 +3,7 @@
   --split-div-size: 0;
   --split-gap-size: 0;
 }
-.reveal .mermaid {   min-width: 100%;   height: auto;}.reveal .mermaid svg {   max-width: 100% !important;}.reveal .mermaid svg .edgeLabel {   background-color: var(--r-background-color) !important;   color: var(--r-main-color) !important;   font-size: 13px;}
+
 split {
   display: flex;
   gap: unset;

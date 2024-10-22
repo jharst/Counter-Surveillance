@@ -94,6 +94,7 @@
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
 
 ### Vorstellung
+
 notes:
 - Vertretung Lehrstuhl Solte-Gresser
 - Forschungsschwerpunkte
@@ -188,6 +189,43 @@ notes:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="lightgray" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
 
+## Schaubild
+<div style="height: 100%; width: 100%; margin: 0; display: flex; justify-content: center; align-items: center;">
+
+<div class="mermaid">
+flowchart TD;
+    B(["Marxismus"])
+    C(["Diskursanalyse"])
+    F(["Strukturalismus"])
+    D(["Dekonstruktion"])
+    E(["New Historicism"])
+    G(["Schreibprozessforschung"])
+    I([Medienwissenschaft])
+    J(["Schreibszene"])
+
+    B--Historischer Materialismus-->C;
+    C--materielle Aussagebedingungen-->I;
+    F--Barthes: écriture-->C;
+    F-->D;
+    F--Kultur als Text-->E;
+    D<--Materialität von Schrift<br>Schreibmedien-->I;
+    E<--kultureller Kontext-->J;
+    D<--Intertextualität-->E;
+    G--individueller Schreibprozess-->J;
+    I--Schreibtechnologien,<br>Aufschreibesysteme-->J;
+    F--kulturelle Rahmung-->J;
+    
+    style C fill:#3269AA50;
+    style F fill:#3269AA50;
+    style I fill:#3269AA50;
+
+</div>
+
+
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="lightgray" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
 <div class="" style="position: absolute; left: 0%; top: 0%; height: 10%; width: 100%; display: flex; flex-direction: column; align-items: start; justify-content: center" >
 
 ### Gruppenaktivität
@@ -206,7 +244,31 @@ notes:
 
 ### Seminarplan und Studienleistungen
 [Seminarplan](./Resources/Schreibszene-Seminarplan.pdf)
-</div></script></section><section  data-markdown><script type="text/template"></script></section></div>
+
+Wenn das Diagramm im Mermaid Live Editor gut aussieht, aber in Obsidian mit Advanced Slides Probleme mit der Darstellung hat, könnte das an unterschiedlichen Faktoren liegen. Hier sind einige Ansätze, um das Problem zu beheben:
+
+1. **CSS-Stilkonflikte**: Advanced Slides könnte eigene CSS-Stile verwenden, die die Darstellung der Mermaid-Diagramme beeinflussen. Überprüfe, ob es CSS-Regeln gibt, die die Diagrammdarstellung ändern, insbesondere solche, die mit Schriftgrößen, Padding oder Margin zu tun haben.
+
+2. **Diagramm-Skalierung**: Stelle sicher, dass keine Skalierungsoptionen in der Präsentation gesetzt sind, die die Darstellung der Diagramme beeinflussen könnten. Überprüfe die Einstellungen in Advanced Slides, ob es Optionen gibt, die sich auf die Darstellung auswirken.
+
+3. **Mermaid-Konfiguration**: Manchmal kann es helfen, spezifische Mermaid-Konfigurationen zu setzen, um das Layout zu verbessern. Du kannst versuchen, die `themeVariables` in der Mermaid-Konfiguration anzupassen, um die Schriftgröße oder das Node-Padding zu ändern.
+
+4. **Versionen**: Stelle sicher, dass die Version von Mermaid, die von Obsidian Advanced Slides verwendet wird, aktuell ist. Es könnte Unterschiede zwischen der Version im Live Editor und der in Obsidian verwendeten geben.
+
+5. **Node-Stil anpassen**: Du kannst versuchen, den Stil der Nodes direkt in deinem Mermaid-Diagramm zu spezifizieren, um sicherzustellen, dass die Schrift zentriert ist und nicht abgeschnitten wird. Beispielsweise:
+   
+<div class="mermaid">
+   graph TD;
+     A[Node A] --> B[Node B];
+     style A fill:#f9f,stroke:#333,stroke-width:2px;
+   
+</div>
+
+
+6. **Präsentationseinstellungen**: Überprüfe die allgemeinen Präsentationseinstellungen in Obsidian Advanced Slides, insbesondere solche, die sich auf die Darstellung und Skalierung von Inhalten beziehen.
+
+Durch diese Anpassungen und Überprüfungen solltest du herausfinden können, was die Probleme in der Darstellung verursacht und wie du sie beheben kannst.
+</div></script></section></div>
     </div>
 
     <script src="dist/reveal.js"></script>
@@ -219,6 +281,7 @@ notes:
 	<script src="plugin/mermaid/mermaid.js"></script>
 	<script src="plugin/chart/chart.min.js"></script>
 	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
 	<script src="plugin/customcontrols/plugin.js"></script>
 
     <script>
@@ -275,6 +338,7 @@ notes:
 		  RevealMermaid,
 		  RevealChart,
 		  RevealCustomControls,
+		  RevealMenu,
         ],
 
 
@@ -299,12 +363,15 @@ notes:
 			controls: [
 			]
 		},
+		menu: {
+			loadIcons: false
+		}
       };
 
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"width":1920,"height":1080,"margin":0.04,"controls":true,"progress":false,"slideNumber":false,"center":false,"transition":"slide","transitionSpeed":"normal"}, queryOptions);
+      var options = extend(defaultOptions, {"width":1920,"height":1080,"margin":0.04,"controls":true,"progress":false,"slideNumber":true,"center":false,"transition":"none","transitionSpeed":"normal","mermaid":{"themeVariables":{"fontSize":"xx-large","background":null,"noteBkgColor":null}}}, queryOptions);
     </script>
 
     <script>

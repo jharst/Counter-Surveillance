@@ -12,8 +12,18 @@
   padding: .15rem;
 }
 
+.reveal blockquote {
+  font-style: normal !important;
+  text-align: left;
+  width: 85%;
+  box-shadow: none;
+  line-height: 2.0;
+}
+
+
+/* MERMAID */
 .reveal .mermaid {   
-  min-width: 80%;   
+  min-width: 80%; 
   max-height: auto;
 }
 
@@ -22,15 +32,15 @@
 }
 
 .reveal .mermaid svg .edgeLabel {   
-  background-color: var(--r-background-color) !important;   
+  background-color: rgba(0,0,0,0) !important;   
   color: var(--r-main-color) !important;   
-  font-size: 13px;
+  font-size: smaller;
 }
 
-.reveal blockquote {
-  font-style: normal !important;
-  text-align: left;
+.reveal .mermaid .nodeLabel {
+  font-size: x-large;
 }
+
 
 /* ---% SLIDE LAYOUTS %--- */
 /* ----------------------- */
@@ -89,6 +99,7 @@
 }
 
 /* LEFT LAYOUT */
+/*-------------*/
 .left-bottom-div {
   position: absolute;
   top: 0;
@@ -117,8 +128,10 @@
   /* to be added */
 }
 
-/* LAYOUT FÜR TITELFOLIE: .container als Bildhintergrund, 
-.left-bottom-div als Farbhintergrund, .slide-title-left als Titelschrift */
+/* LAYOUT FÜR VL-TITELFOLIE: .container als Bildhintergrund, 
+.left-bottom-div als Farbhintergrund (doppelt), 
+.slide-title-left als Titel (VL Literaturgeschichte der Liebe)
+.slide-subtitle-left als Untertitel (1. Sitzung: Einleitung)*/
 .slide-title-left {
   display: flex;
   justify-content: left;
@@ -134,4 +147,18 @@
   /*border-color: white;
   border-style: solid; 
   border-width: 3px;*/
+}
+
+.slide-subtitle-left {
+  position: absolute; 
+  bottom: 0;
+  left: 71%; 
+  width: 100%; 
+  text-align: left; 
+  padding-left: 20px; 
+  color: white; 
+  font-family: 'Impact', Verdana, sans-serif; 
+  font-size: larger;
+  transform: rotate(-78deg) translate(-5%, 50%); 
+  transform-origin: left top; 
 }
